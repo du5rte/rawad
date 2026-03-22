@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "biomejs.biome",
+    "expo.vscode-expo-tools",
+    "github.vscode-pull-request-github"
+  ]
+}

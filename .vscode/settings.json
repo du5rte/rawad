@@ -1,0 +1,40 @@
+{
+  // Editor settings
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  // Biome settings
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#1F321F",
+    "titleBar.activeBackground": "#2B472B",
+    "titleBar.activeForeground": "#F9FBF9",
+    "titleBar.inactiveBackground": "#1F321F",
+    "titleBar.inactiveForeground": "#F9FBF9",
+    "statusBar.background": "#1F321F",
+    "statusBar.foreground": "#F9FBF9",
+    "statusBar.debuggingBackground": "#1F321F",
+    "statusBar.debuggingForeground": "#F9FBF9",
+    "statusBar.noFolderBackground": "#1F321F",
+    "statusBar.noFolderForeground": "#F9FBF9"
+  },
+  "cSpell.words": ["rawad", "dinero"]
+}

@@ -1,34 +1,61 @@
 {
-  "allowedTools": [
-    "WebSearch",
-    "WebFetch",
-
-    "Bash(source *)",
-    "Bash(export *)",
-    "Bash(curl *)",
-    "Bash(jq *)",
-    "Bash(cat *)",
-    "Bash(ls *)",
-    "Bash(grep *)",
-    "Bash(echo *)",
-    "Bash(which *)",
-    "Bash(wc *)",
-    "Bash(file *)",
-    "Bash(pwd)",
-    "Bash(mkdir *)",
-    "Bash(touch *)",
-    "Bash(head *)",
-    "Bash(tail *)",
-    "Bash(find *)",
-    "Bash(sort *)",
-    "Bash(tree *)",
-    "Bash(diff *)",
-    "Bash(node *)",
-    "Bash(npm *)",
-    "Bash(npx *)",
-
-    "Bash(git status*)",
-    "Bash(git diff*)",
-    "Bash(git log*)"
-  ]
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch",
+      "Bash(pwd)",
+      "Bash(date:*)",
+      "Bash(grep:*)",
+      "Bash(which:*)",
+      "Bash(echo:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(file:*)",
+      "Bash(touch:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(diff:*)",
+      "Bash(sort:*)",
+      "Bash(tr:*)",
+      "Bash(node:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git tag:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh pr:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.production)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm format"
+          }
+        ]
+      }
+    ]
+  }
 }
