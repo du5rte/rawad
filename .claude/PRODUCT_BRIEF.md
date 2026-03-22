@@ -112,7 +112,7 @@ Validate the Convex data model for tenant isolation (per company). Confirm live 
 
 | Layer | Choice |
 |---|---|
-| Monorepo | Turborepo |
+| Monorepo | pnpm workspaces |
 | Web app | `apps/web` — Next.js (App Router) |
 | Mobile | `apps/mobile` — Expo (React Native) |
 | Backend | `packages/backend` — Convex |
