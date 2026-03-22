@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Build outputs
+.next
+out
+dist
+build
+.expo
+.expo-shared
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Misc
+.DS_Store
+*.pem
+.turbo
+
+# Debug
+npm-debug.log*
+pnpm-debug.log*
+
+# Convex
+.convex
