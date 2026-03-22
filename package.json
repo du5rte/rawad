@@ -1,0 +1,14 @@
+{
+  "name": "rawad",
+  "private": true,
+  "scripts": {
+    "web": "pnpm --filter web dev",
+    "mobile": "pnpm --filter mobile start",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.8"
+  }
+}
