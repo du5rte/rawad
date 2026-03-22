@@ -1,51 +1,38 @@
 {
-	"allowedTools": [
-		"WebSearch",
-		"WebFetch",
-
-		"Bash(source *)",
-		"Bash(export *)",
-		"Bash(curl *)",
-		"Bash(jq *)",
-		"Bash(cat *)",
-		"Bash(ls *)",
-		"Bash(grep *)",
-		"Bash(echo *)",
-		"Bash(which *)",
-		"Bash(wc *)",
-		"Bash(file *)",
-		"Bash(pwd)",
-		"Bash(mkdir *)",
-		"Bash(touch *)",
-		"Bash(head *)",
-		"Bash(tail *)",
-		"Bash(find *)",
-		"Bash(sort *)",
-		"Bash(tree *)",
-		"Bash(diff *)",
-		"Bash(node *)",
-		"Bash(npm *)",
-		"Bash(pnpm *)",
-		"Bash(npx *)",
-
-		"Bash(git add *)",
-		"Bash(git status*)",
-		"Bash(git diff*)",
-		"Bash(git log*)",
-		"Bash(git commit*)",
-		"Bash(rm *)"
-	],
-	"hooks": {
-		"PreToolUse": [
-			{
-				"matcher": "Bash(git commit*)",
-				"hooks": [
-					{
-						"type": "prompt",
-						"message": "Claude is about to commit. Review staged changes with `git diff --staged`. Proceed?"
-					}
-				]
-			}
-		]
-	}
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "Bash(source *)",
+      "Bash(export *)",
+      "Bash(curl *)",
+      "Bash(jq *)",
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(grep *)",
+      "Bash(echo *)",
+      "Bash(which *)",
+      "Bash(wc *)",
+      "Bash(file *)",
+      "Bash(pwd)",
+      "Bash(mkdir *)",
+      "Bash(touch *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(find *)",
+      "Bash(sort *)",
+      "Bash(tree *)",
+      "Bash(diff *)",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(pnpm *)",
+      "Bash(npx *)",
+      "Bash(git add *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git commit *)",
+      "Bash(rm *)"
+    ]
+  }
 }
