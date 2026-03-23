@@ -1,0 +1,39 @@
+{
+  // Editor settings
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  // Biome settings
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#053610",
+    "titleBar.activeBackground": "#074B17",
+    "titleBar.activeForeground": "#EEFDF1",
+    "titleBar.inactiveBackground": "#053610",
+    "titleBar.inactiveForeground": "#EEFDF1",
+    "statusBar.background": "#053610",
+    "statusBar.foreground": "#EEFDF1",
+    "statusBar.debuggingBackground": "#053610",
+    "statusBar.debuggingForeground": "#EEFDF1",
+    "statusBar.noFolderBackground": "#053610",
+    "statusBar.noFolderForeground": "#EEFDF1"
+  }
+}
