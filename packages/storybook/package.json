@@ -1,0 +1,26 @@
+{
+  "name": "@rawad/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@heroui/react": "^3.0.1",
+    "@rawad/ui": "workspace:*",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "@storybook/react": "^10.3.3",
+    "@storybook/react-vite": "^10.3.3",
+    "@tailwindcss/vite": "^4",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "storybook": "^10.3.3",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "@storybook/addon-docs": "^10.3.3"
+  }
+}

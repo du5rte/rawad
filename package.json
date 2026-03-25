@@ -4,6 +4,7 @@
   "scripts": {
     "web": "pnpm --filter web dev",
     "mobile": "pnpm --filter mobile start",
+    "storybook": "pnpm --filter @rawad/storybook storybook",
     "lint": "biome check",
     "format": "biome check --write"
   },
