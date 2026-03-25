@@ -6,7 +6,7 @@ const ratingValidator = v.union(
   v.literal(2),
   v.literal(3),
   v.literal(4),
-  v.literal(5)
+  v.literal(5),
 );
 
 // Company rates customer
@@ -27,7 +27,8 @@ export const createCompanyReview = mutation({
     if (!agent) throw new Error("Unauthorized");
 
     const booking = await ctx.db.get(args.bookingId);
-    if (!booking || booking.companyId !== agent.companyId) throw new Error("Unauthorized");
+    if (!booking || booking.companyId !== agent.companyId)
+      throw new Error("Unauthorized");
 
     return await ctx.db.insert("companyReviews", {
       bookingId: args.bookingId,
@@ -69,7 +70,8 @@ export const createCustomerReview = mutation({
     if (!customer) throw new Error("Unauthorized");
 
     const booking = await ctx.db.get(args.bookingId);
-    if (!booking || booking.customerId !== customer._id) throw new Error("Unauthorized");
+    if (!booking || booking.customerId !== customer._id)
+      throw new Error("Unauthorized");
 
     return await ctx.db.insert("customerReviews", {
       bookingId: args.bookingId,
@@ -110,8 +112,10 @@ export const createVehicleReview = mutation({
     if (!customer) throw new Error("Unauthorized");
 
     const booking = await ctx.db.get(args.bookingId);
-    if (!booking || booking.customerId !== customer._id) throw new Error("Unauthorized");
-    if (!booking.vehicleId) throw new Error("No vehicle assigned to this booking");
+    if (!booking || booking.customerId !== customer._id)
+      throw new Error("Unauthorized");
+    if (!booking.vehicleId)
+      throw new Error("No vehicle assigned to this booking");
 
     return await ctx.db.insert("vehicleReviews", {
       bookingId: args.bookingId,

@@ -1,5 +1,6 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
+import { discount, money, vehicleRates } from "./pricing";
 
 export default defineSchema({
   companies: defineTable({
@@ -40,7 +41,17 @@ export default defineSchema({
     status: v.union(
       v.literal("available"),
       v.literal("rented"),
-      v.literal("maintenance")
+      v.literal("maintenance"),
+    ),
+    rates: vehicleRates,
+    photos: v.array(v.id("_storage")),
+    description: v.optional(v.string()),
+    specs: v.optional(
+      v.object({
+        engine: v.optional(v.string()),
+        acceleration: v.optional(v.string()),
+        drive: v.optional(v.string()),
+      }),
     ),
   })
     .index("by_company", ["companyId"])
@@ -59,10 +70,19 @@ export default defineSchema({
       v.literal("rta_registered"),
       v.literal("active"),
       v.literal("completed"),
-      v.literal("cancelled")
+      v.literal("cancelled"),
     ),
     startDate: v.number(),
     endDate: v.number(),
+    priceBreakdown: v.optional(
+      v.object({
+        effectiveRate: money,
+        days: v.number(),
+        subtotal: money,
+        discounts: v.array(discount),
+        total: money,
+      }),
+    ),
   })
     .index("by_company", ["companyId"])
     .index("by_customer", ["customerId"])
@@ -74,7 +94,7 @@ export default defineSchema({
     type: v.union(
       v.literal("passport"),
       v.literal("eid"),
-      v.literal("driving_licence")
+      v.literal("driving_licence"),
     ),
     storageId: v.id("_storage"),
   })
@@ -89,8 +109,7 @@ export default defineSchema({
     expiryMonth: v.number(),
     expiryYear: v.number(),
     isDefault: v.boolean(),
-  })
-    .index("by_customer", ["customerId"]),
+  }).index("by_customer", ["customerId"]),
 
   companyReviews: defineTable({
     bookingId: v.id("bookings"),
@@ -102,7 +121,7 @@ export default defineSchema({
       v.literal(2),
       v.literal(3),
       v.literal(4),
-      v.literal(5)
+      v.literal(5),
     ),
     note: v.optional(v.string()),
   })
@@ -119,7 +138,7 @@ export default defineSchema({
       v.literal(2),
       v.literal(3),
       v.literal(4),
-      v.literal(5)
+      v.literal(5),
     ),
     note: v.optional(v.string()),
   })
@@ -136,7 +155,7 @@ export default defineSchema({
       v.literal(2),
       v.literal(3),
       v.literal(4),
-      v.literal(5)
+      v.literal(5),
     ),
     note: v.optional(v.string()),
   })

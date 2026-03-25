@@ -6,7 +6,7 @@ export const upsert = mutation({
     type: v.union(
       v.literal("passport"),
       v.literal("eid"),
-      v.literal("driving_licence")
+      v.literal("driving_licence"),
     ),
     storageId: v.id("_storage"),
   },
@@ -23,7 +23,7 @@ export const upsert = mutation({
     const existing = await ctx.db
       .query("documents")
       .withIndex("by_customer_and_type", (q) =>
-        q.eq("customerId", customer._id).eq("type", args.type)
+        q.eq("customerId", customer._id).eq("type", args.type),
       )
       .unique();
 

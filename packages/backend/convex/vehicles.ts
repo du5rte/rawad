@@ -1,5 +1,6 @@
-import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import { mutation, query } from "./_generated/server";
+import { vehicleRates } from "./pricing";
 
 export const create = mutation({
   args: {
@@ -8,10 +9,22 @@ export const create = mutation({
     model: v.string(),
     year: v.number(),
     plateNumber: v.string(),
+    rates: vehicleRates,
+    photos: v.optional(v.array(v.id("_storage"))),
+    description: v.optional(v.string()),
+    specs: v.optional(
+      v.object({
+        engine: v.optional(v.string()),
+        acceleration: v.optional(v.string()),
+        drive: v.optional(v.string()),
+      }),
+    ),
   },
   handler: async (ctx, args) => {
+    const { photos, ...rest } = args;
     return await ctx.db.insert("vehicles", {
-      ...args,
+      ...rest,
+      photos: photos ?? [],
       status: "available",
     });
   },
@@ -24,8 +37,8 @@ export const listByCompany = query({
       v.union(
         v.literal("available"),
         v.literal("rented"),
-        v.literal("maintenance")
-      )
+        v.literal("maintenance"),
+      ),
     ),
   },
   handler: async (ctx, args) => {
@@ -34,7 +47,7 @@ export const listByCompany = query({
       return await ctx.db
         .query("vehicles")
         .withIndex("by_company_and_status", (q) =>
-          q.eq("companyId", args.companyId).eq("status", status)
+          q.eq("companyId", args.companyId).eq("status", status),
         )
         .collect();
     }
@@ -51,7 +64,7 @@ export const updateStatus = mutation({
     status: v.union(
       v.literal("available"),
       v.literal("rented"),
-      v.literal("maintenance")
+      v.literal("maintenance"),
     ),
   },
   handler: async (ctx, args) => {
