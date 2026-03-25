@@ -24,16 +24,17 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "workbench.colorCustomizations": {
-    "activityBar.background": "#053610",
-    "titleBar.activeBackground": "#074B17",
-    "titleBar.activeForeground": "#EEFDF1",
-    "titleBar.inactiveBackground": "#053610",
-    "titleBar.inactiveForeground": "#EEFDF1",
-    "statusBar.background": "#053610",
-    "statusBar.foreground": "#EEFDF1",
-    "statusBar.debuggingBackground": "#053610",
-    "statusBar.debuggingForeground": "#EEFDF1",
-    "statusBar.noFolderBackground": "#053610",
-    "statusBar.noFolderForeground": "#EEFDF1"
-  }
+    "activityBar.background": "#1F321F",
+    "titleBar.activeBackground": "#2B472B",
+    "titleBar.activeForeground": "#F9FBF9",
+    "titleBar.inactiveBackground": "#1F321F",
+    "titleBar.inactiveForeground": "#F9FBF9",
+    "statusBar.background": "#1F321F",
+    "statusBar.foreground": "#F9FBF9",
+    "statusBar.debuggingBackground": "#1F321F",
+    "statusBar.debuggingForeground": "#F9FBF9",
+    "statusBar.noFolderBackground": "#1F321F",
+    "statusBar.noFolderForeground": "#F9FBF9"
+  },
+  "cSpell.words": ["rawad", "dinero"]
 }

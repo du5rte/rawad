@@ -35,7 +35,28 @@
       "Bash(git status:*)",
       "Bash(git log:*)",
       "Bash(git diff:*)",
-      "Bash(git tag:*)"
+      "Bash(git tag:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh pr:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.production)",
+      "Bash(rm -rf *)",
+      "Bash(git push --force:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm format"
+          }
+        ]
+      }
     ]
   }
 }
