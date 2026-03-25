@@ -2,11 +2,14 @@
   "name": "@rawad/backend",
   "version": "0.0.0",
   "private": true,
+  "main": "./convex/index.ts",
+  "types": "./convex/index.ts",
   "scripts": {
     "dev": "convex dev",
     "deploy": "convex deploy"
   },
   "dependencies": {
+    "@rawad/core": "workspace:*",
     "convex": "^1.34.0"
   }
 }

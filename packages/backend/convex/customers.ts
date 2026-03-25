@@ -1,5 +1,5 @@
-import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import { mutation, query } from "./_generated/server";
 
 export const create = mutation({
   args: {
@@ -66,7 +66,7 @@ export const listByCompany = query({
       .withIndex("by_company", (q) => q.eq("companyId", args.companyId))
       .collect();
     const customers = await Promise.all(
-      companyCustomers.map((cc) => ctx.db.get(cc.customerId))
+      companyCustomers.map((cc) => ctx.db.get(cc.customerId)),
     );
     return customers.filter(Boolean);
   },

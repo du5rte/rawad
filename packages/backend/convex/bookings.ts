@@ -1,5 +1,8 @@
-import { mutation, query } from "./_generated/server";
+import { calcPriceBreakdown } from "@rawad/core";
 import { v } from "convex/values";
+
+import { mutation, query } from "./_generated/server";
+import { discount } from "./pricing";
 
 export const create = mutation({
   args: {
@@ -8,6 +11,7 @@ export const create = mutation({
     vehicleId: v.optional(v.id("vehicles")),
     startDate: v.number(),
     endDate: v.number(),
+    discounts: v.optional(v.array(discount)),
   },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -17,12 +21,13 @@ export const create = mutation({
       .query("agents")
       .withIndex("by_clerk_id", (q) => q.eq("clerkId", identity.subject))
       .unique();
-    if (!agent || agent.companyId !== args.companyId) throw new Error("Unauthorized");
+    if (!agent || agent.companyId !== args.companyId)
+      throw new Error("Unauthorized");
 
     const existing = await ctx.db
       .query("companyCustomers")
       .withIndex("by_company_and_customer", (q) =>
-        q.eq("companyId", args.companyId).eq("customerId", args.customerId)
+        q.eq("companyId", args.companyId).eq("customerId", args.customerId),
       )
       .unique();
     if (!existing) {
@@ -30,6 +35,19 @@ export const create = mutation({
         companyId: args.companyId,
         customerId: args.customerId,
       });
+    }
+
+    let priceBreakdown: ReturnType<typeof calcPriceBreakdown> | undefined;
+    if (args.vehicleId) {
+      const vehicle = await ctx.db.get(args.vehicleId);
+      if (vehicle) {
+        priceBreakdown = calcPriceBreakdown(
+          vehicle,
+          args.startDate,
+          args.endDate,
+          args.discounts ?? [],
+        );
+      }
     }
 
     const checkoutToken = crypto.randomUUID();
@@ -42,6 +60,7 @@ export const create = mutation({
       status: "pending_documents",
       startDate: args.startDate,
       endDate: args.endDate,
+      priceBreakdown,
     });
 
     return { bookingId, checkoutToken };
@@ -69,8 +88,8 @@ export const listByCompany = query({
         v.literal("rta_registered"),
         v.literal("active"),
         v.literal("completed"),
-        v.literal("cancelled")
-      )
+        v.literal("cancelled"),
+      ),
     ),
   },
   handler: async (ctx, args) => {
@@ -79,7 +98,7 @@ export const listByCompany = query({
       return await ctx.db
         .query("bookings")
         .withIndex("by_company_and_status", (q) =>
-          q.eq("companyId", args.companyId).eq("status", status)
+          q.eq("companyId", args.companyId).eq("status", status),
         )
         .order("desc")
         .take(100);
@@ -89,6 +108,41 @@ export const listByCompany = query({
       .withIndex("by_company", (q) => q.eq("companyId", args.companyId))
       .order("desc")
       .take(100);
+  },
+});
+
+export const updateDates = mutation({
+  args: {
+    id: v.id("bookings"),
+    token: v.string(),
+    startDate: v.number(),
+    endDate: v.number(),
+  },
+  handler: async (ctx, args) => {
+    const booking = await ctx.db.get(args.id);
+    if (!booking || booking.checkoutToken !== args.token)
+      throw new Error("Not found");
+    if (booking.status !== "pending_documents")
+      throw new Error("Dates cannot be changed at this stage");
+
+    let priceBreakdown: ReturnType<typeof calcPriceBreakdown> | undefined;
+    if (booking.vehicleId) {
+      const vehicle = await ctx.db.get(booking.vehicleId);
+      if (vehicle) {
+        priceBreakdown = calcPriceBreakdown(
+          vehicle,
+          args.startDate,
+          args.endDate,
+          booking.priceBreakdown?.discounts ?? [],
+        );
+      }
+    }
+
+    await ctx.db.patch(args.id, {
+      startDate: args.startDate,
+      endDate: args.endDate,
+      priceBreakdown,
+    });
   },
 });
 
@@ -102,7 +156,7 @@ export const updateStatus = mutation({
       v.literal("rta_registered"),
       v.literal("active"),
       v.literal("completed"),
-      v.literal("cancelled")
+      v.literal("cancelled"),
     ),
   },
   handler: async (ctx, args) => {
