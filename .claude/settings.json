@@ -30,6 +30,8 @@
       "Bash(node:*)",
       "Bash(npx:*)",
       "Bash(pnpm:*)",
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git status:*)",
