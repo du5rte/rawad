@@ -1,3 +1,5 @@
+"use client";
+
 import { RangeCalendar, type RangeValue } from "@heroui/react";
 import {
   type CalendarDate,

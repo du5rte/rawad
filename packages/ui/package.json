@@ -19,6 +19,7 @@
     "react-native": "*"
   },
   "devDependencies": {
+    "@rawad/mocks": "workspace:*",
     "@types/react": "^19",
     "typescript": "^5"
   }
