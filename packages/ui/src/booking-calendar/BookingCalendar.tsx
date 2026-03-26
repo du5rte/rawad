@@ -1,6 +1,18 @@
 "use client";
 
-import { RangeCalendar, type RangeValue } from "@heroui/react";
+import {
+  RangeCalendarCell,
+  RangeCalendarCellIndicator,
+  RangeCalendarGrid,
+  RangeCalendarGridBody,
+  RangeCalendarGridHeader,
+  RangeCalendarHeader,
+  RangeCalendarHeaderCell,
+  RangeCalendarHeading,
+  RangeCalendarNavButton,
+  RangeCalendarRoot,
+  type RangeValue,
+} from "@heroui/react";
 import {
   type CalendarDate,
   getLocalTimeZone,
@@ -45,7 +57,26 @@ export function BookingCalendar({
 
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-divider bg-content1 p-4 shadow-sm w-fit">
-      <RangeCalendar value={range} onChange={setRange} minValue={minValue} />
+      <RangeCalendarRoot value={range} onChange={setRange} minValue={minValue}>
+        <RangeCalendarHeader>
+          <RangeCalendarNavButton slot="previous" />
+          <RangeCalendarHeading />
+          <RangeCalendarNavButton slot="next" />
+        </RangeCalendarHeader>
+        <RangeCalendarGrid>
+          <RangeCalendarGridHeader>
+            {(day) => <RangeCalendarHeaderCell>{day}</RangeCalendarHeaderCell>}
+          </RangeCalendarGridHeader>
+          <RangeCalendarGridBody>
+            {(date) => (
+              <RangeCalendarCell date={date}>
+                <RangeCalendarCellIndicator />
+                {date.day}
+              </RangeCalendarCell>
+            )}
+          </RangeCalendarGridBody>
+        </RangeCalendarGrid>
+      </RangeCalendarRoot>
       <div className="h-px bg-divider" />
       <PriceBreakdown breakdown={breakdown} />
     </div>
