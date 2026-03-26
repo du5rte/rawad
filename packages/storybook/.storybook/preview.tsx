@@ -1,13 +1,13 @@
-import { HeroUIProvider } from "@heroui/react";
+import { I18nProvider } from "@heroui/react";
 import type { Preview } from "@storybook/react-vite";
 import "./preview.css";
 
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <HeroUIProvider>
+      <I18nProvider locale="en-AE">
         <Story />
-      </HeroUIProvider>
+      </I18nProvider>
     ),
   ],
   parameters: {
