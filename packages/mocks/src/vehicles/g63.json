@@ -1,0 +1,20 @@
+{
+  "day": {
+    "price": {
+      "amount": "1000",
+      "currencyCode": "AED"
+    }
+  },
+  "week": {
+    "price": {
+      "amount": "6700",
+      "currencyCode": "AED"
+    }
+  },
+  "month": {
+    "price": {
+      "amount": "24000",
+      "currencyCode": "AED"
+    }
+  }
+}

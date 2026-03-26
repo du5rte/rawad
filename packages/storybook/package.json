@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@heroui/react": "^3.0.1",
+    "@rawad/mocks": "workspace:*",
     "@rawad/ui": "workspace:*",
     "react": "^19",
     "react-dom": "^19"
