@@ -1,5 +1,0 @@
-{
-  "buildCommand": "pnpm --filter @rawad/storybook build-storybook",
-  "outputDirectory": "packages/storybook/storybook-static",
-  "installCommand": "pnpm install --frozen-lockfile"
-}
