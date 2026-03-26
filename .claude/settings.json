@@ -1,5 +1,4 @@
 {
-  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Read",
@@ -11,43 +10,40 @@
       "WebFetch",
       "Bash(pwd)",
       "Bash(date:*)",
-      "Bash(grep:*)",
-      "Bash(which:*)",
       "Bash(echo:*)",
+      "Bash(which:*)",
       "Bash(cat:*)",
-      "Bash(ls:*)",
-      "Bash(mkdir:*)",
-      "Bash(file:*)",
-      "Bash(touch:*)",
-      "Bash(wc:*)",
       "Bash(head:*)",
       "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(file:*)",
+      "Bash(touch:*)",
+      "Bash(ls:*)",
       "Bash(find:*)",
       "Bash(tree:*)",
       "Bash(diff:*)",
       "Bash(sort:*)",
       "Bash(tr:*)",
+      "Bash(grep:*)",
       "Bash(node:*)",
       "Bash(npx:*)",
       "Bash(pnpm:*)",
-      "Bash(git checkout:*)",
-      "Bash(git push:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
       "Bash(git status:*)",
       "Bash(git log:*)",
       "Bash(git diff:*)",
+      "Bash(git pull:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
       "Bash(git tag:*)",
+      "Bash(git push:*)",
       "Bash(gh issue:*)",
       "Bash(gh pr:*)"
     ],
-    "deny": [
-      "Read(.env)",
-      "Read(.env.production)",
-      "Bash(rm -rf *)",
-      "Bash(git push --force:*)"
-    ]
+    "deny": ["Read(.env)", "Read(.env.production)"],
+    "ask": ["Bash(rm -rf *)", "Bash(git push --force:*)"]
   },
+  "enableAllProjectMcpServers": true,
   "hooks": {
     "PostToolUse": [
       {
@@ -60,5 +56,14 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {},
+  "extraKnownMarketplaces": {
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    }
   }
 }

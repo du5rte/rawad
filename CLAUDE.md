@@ -12,7 +12,6 @@ See `.claude/PRODUCT_BRIEF.md` for full product context, personas, and scope.
 - **Backend:** `packages/backend` — Convex
 - **Shared UI:** `packages/ui`
 - **Core logic:** `packages/core`
-- **Payments:** Stripe / Telr (UAE)
 - **Language:** TypeScript throughout
 
 ## Key decisions

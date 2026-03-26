@@ -1,4 +1,5 @@
 # Rawad · رواد
+
 **Fleet management and real-time booking infrastructure for Dubai car rentals**
 
 ---
@@ -43,7 +44,7 @@ Over time, stored customer profiles and a renter reputation system create a trus
 Rental agent generates a unique link per booking. Customer opens it on their device, uploads documents, and saves a card on file. No login required from the customer; the link is the session.
 
 **02. Customer card on file**
-During self-checkout, the customer saves a payment method (tokenised via Stripe or Telr). The card is stored against their Rawad profile, not shared with the rental directly. Enables post-rental charging for fines and damages without a held deposit. This is the rental owner's single biggest financial risk, addressed at checkout.
+During self-checkout, the customer saves a payment method (tokenised via Stripe or Checkout or Telr). The card is stored against their Rawad profile, not shared with the rental directly. Enables post-rental charging for fines and damages without a held deposit. This is the rental owner's single biggest financial risk, addressed at checkout.
 
 **03. RTA registration pre-fill**
 Submitted customer data auto-populates the RTA fleet management form. The agent reviews and submits. Eliminates manual re-entry and reduces a 10-minute, error-prone task to one confirmation.
@@ -98,7 +99,7 @@ Resolve these before writing product code.
 Does RTA expose an API for driver and vehicle registration? If not, the path is Playwright browser automation to pre-fill and submit their web form. This determines whether v1 is a one-click submit or a review-and-submit-manually flow. Must be resolved in week 1.
 
 **Spike 2: Payment tokenisation and post-rental charging**
-Card on file requires a PCI-compliant payment provider (Stripe or Telr for UAE). The charge model for fines needs legal review. Is Rawad the merchant of record, or does it pass the charge through to the rental company? This affects the entire payment architecture and potentially requires a UAE financial services registration.
+Card on file requires a PCI-compliant payment provider (Stripe or Checkout or Telr for UAE). The charge model for fines needs legal review. Is Rawad the merchant of record, or does it pass the charge through to the rental company? This affects the entire payment architecture and potentially requires a UAE financial services registration.
 
 **Spike 3: Document storage and PDPL compliance**
 Customer passports, EIDs, and licences are PII under UAE data protection law (PDPL). Storage must be encrypted at rest, tenant-isolated per rental company, with defined retention and deletion policies. This architecture must be finalised before any data flows are built.
@@ -118,7 +119,7 @@ Validate the Convex data model for tenant isolation (per company). Confirm live 
 | Backend | `packages/backend` — Convex |
 | Shared UI | `packages/ui` |
 | Core logic | `packages/core` |
-| Payments | Stripe or Telr (UAE) — pending Spike 2 |
+| Payments | Stripe or Checkout or Telr (UAE) — pending Spike 2 |
 | RTA automation | Playwright — pending Spike 1 |
 | Language | TypeScript throughout |
 
