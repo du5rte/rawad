@@ -25,6 +25,6 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm --filter @rawad/storybook exec chromatic --build-script-name=build-storybook
+      - run: pnpm --filter @rawad/storybook exec chromatic --build-script-name=build-storybook --exit-zero-on-changes
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

@@ -22,6 +22,6 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "@storybook/addon-docs": "^10.3.3",
-    "chromatic": "^11"
+    "chromatic": "^16"
   }
 }
