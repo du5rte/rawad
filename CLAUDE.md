@@ -19,6 +19,8 @@ See `.claude/PRODUCT_BRIEF.md` for full product context, personas, and scope.
 - pnpm workspaces over Turborepo — lean monorepo, no build orchestration overhead at this stage
 - Convex for backend — real-time queries, serverless functions, built-in auth
 - Semantic commits (`feat:`, `fix:`, `chore:`, `docs:`, etc.) — no enforcement tooling, just follow the convention
+- Squash sparse commits with `git rebase -i` when working on main — keep history clean and meaningful
+- After each commit, remind the user to run `/clear` to reset context and avoid token waste
 - English-first UI with Arabic RTL support considered from token level, not retrofitted
 
 ## Code style
