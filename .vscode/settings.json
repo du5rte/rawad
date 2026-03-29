@@ -5,7 +5,8 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
-    "source.fixAll": "always"
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit"
   },
   // Biome settings
   "[json]": {
@@ -23,6 +24,11 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+  // Tailwind CSS
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  // Workbench
   "workbench.colorCustomizations": {
     "activityBar.background": "#1F321F",
     "titleBar.activeBackground": "#2B472B",
@@ -36,5 +42,16 @@
     "statusBar.noFolderBackground": "#1F321F",
     "statusBar.noFolderForeground": "#F9FBF9"
   },
-  "cSpell.words": ["rawad", "dinero"]
+  // Colorize
+  "colorize.languages": [
+    "css",
+    "json",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  // "colorize.colorized_colors": ["CSS_VARIABLES", "HEXA", "RGB", "HSL"],
+  // Spell
+  "cSpell.words": ["rawad", "uniwind", "dinero"]
 }

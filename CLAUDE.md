@@ -18,7 +18,7 @@ See `.claude/PRODUCT_BRIEF.md` for full product context, personas, and scope.
 
 - pnpm workspaces over Turborepo — lean monorepo, no build orchestration overhead at this stage
 - Convex for backend — real-time queries, serverless functions, built-in auth
-- No Conventional Commits enforcement — write clear commit messages, add tooling later if needed
+- Semantic commits (`feat:`, `fix:`, `chore:`, `docs:`, etc.) — no enforcement tooling, just follow the convention
 - English-first UI with Arabic RTL support considered from token level, not retrofitted
 
 ## Code style

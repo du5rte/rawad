@@ -1,10 +1,5 @@
-import { Button } from "@rawad/ui";
-import { View } from "react-native";
+import { Redirect } from "expo-router";
 
 export default function Index() {
-  return (
-    <View className="flex-1 justify-center items-center">
-      <Button label="Get Started" />
-    </View>
-  );
+  return <Redirect href="/colors" />;
 }

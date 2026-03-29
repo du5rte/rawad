@@ -57,7 +57,9 @@
       }
     ]
   },
-  "enabledPlugins": {},
+  "enabledPlugins": {
+    "playwright@claude-plugins-official": true
+  },
   "extraKnownMarketplaces": {
     "impeccable": {
       "source": {

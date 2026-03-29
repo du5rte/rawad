@@ -1,11 +1,81 @@
 @import "tailwindcss";
 @import "uniwind";
-@import "heroui-native/styles";
 
-/* Path to the heroui-native lib inside node_modules relative to global.css */
-/* Examples:
- *   - If global.css is at project root: ./node_modules/heroui-native/lib
- *   - If global.css is in app/: ../node_modules/heroui-native/lib
- *   - If global.css is in src/styles/: ../../node_modules/heroui-native/lib
- */
-@source "../../node_modules/heroui-native/lib";
+/* ─── Design tokens ─────────────────────────────────────────────────────── */
+
+@layer theme {
+  @variant light {
+    --color-background: hsl(0 0% 100%);
+    --color-foreground: hsl(0 0% 9%);
+
+    --color-card: hsl(0 0% 98%);
+    --color-card-foreground: hsl(0 0% 9%);
+
+    --color-popover: hsl(0 0% 100%);
+    --color-popover-foreground: hsl(0 0% 9%);
+
+    --color-primary: hsl(0 0% 9%);
+    --color-primary-foreground: hsl(0 0% 100%);
+
+    --color-secondary: hsl(0 0% 96%);
+    --color-secondary-foreground: hsl(0 0% 9%);
+
+    --color-muted: hsl(0 0% 96%);
+    --color-muted-foreground: hsl(0 0% 45%);
+
+    --color-accent: hsl(0 0% 92%);
+    --color-accent-foreground: hsl(0 0% 9%);
+
+    --color-success: hsl(142 76% 36%);
+    --color-success-foreground: hsl(0 0% 100%);
+
+    --color-destructive: hsl(0 84% 60%);
+    --color-destructive-foreground: hsl(0 0% 100%);
+
+    --color-border: hsl(0 0% 88%);
+    --color-input: hsl(0 0% 88%);
+    --color-ring: hsl(0 0% 9%);
+  }
+
+  @variant dark {
+    --color-background: hsl(0 0% 12%);
+    --color-foreground: hsl(0 0% 80%);
+
+    --color-card: hsl(0 0% 15%);
+    --color-card-foreground: hsl(0 0% 80%);
+
+    --color-popover: hsl(0 0% 15%);
+    --color-popover-foreground: hsl(0 0% 80%);
+
+    --color-primary: hsl(0 0% 100%);
+    --color-primary-foreground: hsl(0 0% 9%);
+
+    --color-secondary: hsl(0 0% 20%);
+    --color-secondary-foreground: hsl(0 0% 80%);
+
+    --color-muted: hsl(0 0% 20%);
+    --color-muted-foreground: hsl(0 0% 52%);
+
+    --color-accent: hsl(0 0% 24%);
+    --color-accent-foreground: hsl(0 0% 80%);
+
+    --color-success: hsl(142 71% 45%);
+    --color-success-foreground: hsl(0 0% 100%);
+
+    --color-destructive: hsl(0 84% 60%);
+    --color-destructive-foreground: hsl(0 0% 100%);
+
+    --color-border: hsl(0 0% 24%);
+    --color-input: hsl(0 0% 24%);
+    --color-ring: hsl(0 0% 100%);
+  }
+}
+
+/* ─── Other tokens ───────────────────────────────────────────────────────── */
+
+@theme {
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-full: 9999px;
+}
