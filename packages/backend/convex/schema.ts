@@ -49,8 +49,48 @@ export default defineSchema({
     specs: v.optional(
       v.object({
         engine: v.optional(v.string()),
+        horsepower: v.optional(v.number()),
         acceleration: v.optional(v.string()),
-        drive: v.optional(v.string()),
+        drive: v.optional(
+          v.union(
+            v.literal("FWD"),
+            v.literal("RWD"),
+            v.literal("AWD"),
+            v.literal("4WD"),
+          ),
+        ),
+        transmission: v.optional(
+          v.union(v.literal("automatic"), v.literal("manual")),
+        ),
+        fuelType: v.optional(
+          v.union(
+            v.literal("petrol"),
+            v.literal("diesel"),
+            v.literal("hybrid"),
+          ),
+        ),
+        electrification: v.optional(
+          v.union(
+            v.literal("MHEV"),
+            v.literal("HEV"),
+            v.literal("PHEV"),
+            v.literal("BEV"),
+          ),
+        ),
+        seats: v.optional(v.number()),
+        doors: v.optional(v.number()),
+        luggage: v.optional(v.number()),
+        color: v.optional(v.string()),
+        category: v.optional(
+          v.union(
+            v.literal("sedan"),
+            v.literal("suv"),
+            v.literal("coupe"),
+            v.literal("convertible"),
+            v.literal("van"),
+            v.literal("truck"),
+          ),
+        ),
       }),
     ),
   })
