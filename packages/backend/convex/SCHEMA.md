@@ -52,6 +52,24 @@ pending_documents → documents_submitted → card_saved → rta_registered → 
                                                                                  ↘ cancelled
 ```
 
+## Vehicles
+
+`fuelType` and `electrification` are two separate fields serving different purposes:
+
+- `fuelType` — customer-facing label used in the UI (petrol / diesel / hybrid). Always set.
+- `electrification` — specific powertrain classification. Only set when relevant; omit for pure combustion vehicles.
+
+Electrification values:
+
+| Value | Meaning |
+|---|---|
+| `MHEV` | Mild Hybrid — small motor assists the engine, cannot drive on electricity alone |
+| `HEV` | Full Hybrid — electric-only at low speed, self-charging, no plug needed |
+| `PHEV` | Plug-in Hybrid — chargeable battery with meaningful electric-only range before combustion kicks in |
+| `BEV` | Battery Electric Vehicle — fully electric, no combustion engine |
+
+The split avoids exposing powertrain jargon to all users while still enabling powertrain-specific filtering.
+
 ## Checkout token
 
 A plain UUID generated via `crypto.randomUUID()` at booking creation. Stored on the booking as `checkoutToken`. The token is the session — no customer login is required to open the checkout link, but the customer will be prompted to sign up or log in via Clerk to save their profile.

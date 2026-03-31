@@ -62,7 +62,6 @@ export default defineSchema({
         transmission: v.optional(
           v.union(v.literal("automatic"), v.literal("manual")),
         ),
-        // Customer-facing fuel type
         fuelType: v.optional(
           v.union(
             v.literal("petrol"),
@@ -70,11 +69,6 @@ export default defineSchema({
             v.literal("hybrid"),
           ),
         ),
-        // Specific powertrain classification (omit for pure combustion)
-        // "MHEV" — Mild Hybrid: small motor assists engine, cannot drive alone
-        // "HEV"  — Full Hybrid: electric-only at low speed, self-charging
-        // "PHEV" — Plug-in Hybrid: chargeable battery, meaningful electric-only range before combustion kicks in
-        // "BEV"  — Battery Electric Vehicle: fully electric, no combustion engine
         electrification: v.optional(
           v.union(
             v.literal("MHEV"),
