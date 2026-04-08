@@ -165,11 +165,24 @@ importers:
         specifier: ^5
         version: 5.9.3
 
+  packages/mocks:
+    dependencies:
+      '@rawad/backend':
+        specifier: workspace:*
+        version: link:../backend
+    devDependencies:
+      typescript:
+        specifier: ^5
+        version: 5.9.3
+
   packages/storybook:
     dependencies:
       '@heroui/react':
         specifier: ^3.0.1
         version: 3.0.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(tailwindcss@4.2.2)
+      '@rawad/mocks':
+        specifier: workspace:*
+        version: link:../mocks
       '@rawad/ui':
         specifier: workspace:*
         version: link:../ui
@@ -213,6 +226,12 @@ importers:
       '@heroui/react':
         specifier: '*'
         version: 3.0.1(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(tailwindcss@4.2.2)
+      '@internationalized/date':
+        specifier: ^3
+        version: 3.12.0
+      '@rawad/core':
+        specifier: workspace:*
+        version: link:../core
       heroui-native:
         specifier: '*'
         version: 1.0.0(69a38096c87426b7de41778b3d4dd2c5)
@@ -229,6 +248,9 @@ importers:
         specifier: ^3.2.2
         version: 3.2.2(tailwind-merge@3.4.0)(tailwindcss@4.2.2)
     devDependencies:
+      '@rawad/mocks':
+        specifier: workspace:*
+        version: link:../mocks
       '@types/react':
         specifier: ^19
         version: 19.2.14

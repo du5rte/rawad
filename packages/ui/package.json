@@ -8,6 +8,10 @@
     ".": "./src/index.ts",
     "./globals.css": "./globals.css"
   },
+  "dependencies": {
+    "@rawad/core": "workspace:*",
+    "@internationalized/date": "^3"
+  },
   "peerDependencies": {
     "@heroui/react": "*",
     "heroui-native": "*",
@@ -15,6 +19,7 @@
     "react-native": "*"
   },
   "devDependencies": {
+    "@rawad/mocks": "workspace:*",
     "@types/react": "^19",
     "typescript": "^5"
   },
